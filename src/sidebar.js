@@ -39,6 +39,12 @@ function createStatTable(title, emptyText, data) {
       statView.appendChild(itemView)
     })
   }
+
+  const timeTitleView = document.createElement('div')
+  timeTitleView.className = 'stat-list__title'
+  timeTitleView.innerHTML = `<span>time</span>`
+  statView.appendChild(timeTitleView)
+
   return statView
 }
 
