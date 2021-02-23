@@ -33,14 +33,14 @@ function createStatTable(title, emptyText, data, timeData) {
     emptyView.innerText = emptyText
     statView.appendChild(emptyView)
   } else {
+    Object.keys(timeData).forEach(function (key) {
       let itemView = document.createElement('div')
       itemView.className = 'stat-list__item'
-      itemView.innerHTML =
-        `<span class="stat-list__item-name">見積もり</span>` +
-        `<span class="stat-list__item-value">${timeData.estimation}</span>` +
-        `<span class="stat-list__item-name">実績</span>` +
-        `<span class="stat-list__item-value">${timeData.result}</span>`
+      itemView.innerHTML = 
+        `<span class="stat-list__item-name">${key}</span>` +
+        `<span class="stat-list__item-value">${timeData[key]}</span>` 
       statView.appendChild(itemView)
+    })
   }
 
   const titleView = document.createElement('div')
@@ -97,8 +97,8 @@ async function calcTime(widgets) {
     }
   }))
   const sumTime = {
-    estimation: estimationSum,
-    result: resultSum,
+    '見積もり': estimationSum,
+    '実績': resultSum,
   }
   console.log(sumTime)
   return sumTime
