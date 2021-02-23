@@ -91,9 +91,9 @@ async function calcTime(widgets) {
     }
     const shape = (await miro.board.widgets.get({id: widget.id}))[0]
     if (shape.plainText.slice(0,1) === 'e'){
-      estimationSum += Number(widget.plainText.replace(/[^0-9^\.]/g,""))
+      estimationSum += Number(shape.plainText.replace(/[^0-9^\.]/g,""))
     } else {
-      resultSum += Number(widget.plainText.replace(/[^0-9^\.]/g,""))
+      resultSum += Number(shape.plainText.replace(/[^0-9^\.]/g,""))
     }
   }))
   const sumTime = {
