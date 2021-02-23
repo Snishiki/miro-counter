@@ -2,7 +2,7 @@ async function showStatistics(selection) {
   clear()
   const statByType = calcByType(selection)
   const statTime = await calcTime(selection)
-  getContainer().appendChild(createStatTable('type', 'Looks like the selection is empty.', statByType, statTime))
+  getContainer().appendChild(createStatTable('Type', 'Looks like the selection is empty.', statByType, statTime))
 }
 
 function clear() {
@@ -24,7 +24,7 @@ function createStatTable(title, emptyText, data, timeData) {
 
   const timeTitleView = document.createElement('div')
   timeTitleView.className = 'stat-list__title'
-  timeTitleView.innerHTML = `<span>time</span>`
+  timeTitleView.innerHTML = `<span>Time</span>`
   statView.appendChild(timeTitleView)
 
   if (data.size === 0) {
